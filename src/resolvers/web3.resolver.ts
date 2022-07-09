@@ -12,7 +12,12 @@ export class Web3Resolver {
   }
 
   @Mutation(returns => String)
-  async checkSignature(@Args('message') message: string, @Args('address') address: string ) {
-    return JSON.stringify({message, address});
+  async sign(@Args('pk') pk: string, @Args('message') message: string ) {
+    return this.web3.signMsg(message, pk)?.signature;
+  }
+
+  @Mutation(returns => Boolean)
+  async checkSignature(@Args('signature') signature: string, @Args('message') message: string, @Args('address') address: string ) {
+    return this.web3.verifySignature(message, address, signature);
   }
 }

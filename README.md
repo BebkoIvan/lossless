@@ -45,6 +45,14 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Access GraphQl Playground 
+
+http://localhost:3000/graphql
+
+## Run Signature script
+```
+npm run generate_signature
+```
 ## Test
 
 ```bash
